@@ -51,6 +51,9 @@ export default function Hero() {
     return (
         <section ref={containerRef} className="relative h-[200vh] w-full bg-black">
             <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden bg-black">
+                {/* Subtle center glow */}
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_85%)] mix-blend-screen" />
+
                 {/* <a
                     href="#request"
                     className="absolute right-6 top-6 z-20 text-xs font-semibold uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white sm:right-10 sm:top-8"
