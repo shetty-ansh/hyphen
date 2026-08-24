@@ -5,19 +5,17 @@
   --foreground: #171717;
 }
 
+.dark {
+  --background: #000000;
+  --foreground: #F9F6F0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: #EDC001;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #F9F6F0;
-    --foreground: #171717;
-  }
 }
 
 body {

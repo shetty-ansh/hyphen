@@ -1,13 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 export default function Navbar() {
     const { scrollY } = useScroll();
     const [isHeroPassed, setIsHeroPassed] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         // The hero is 200vh tall. The sticky container un-sticks after 100vh of scroll.
@@ -29,7 +37,7 @@ export default function Navbar() {
                 <div className="flex w-1/3 items-center gap-8 pointer-events-auto">
                     <Image src="/images/logo.png" alt="Hyphen Logo" width={30} height={30} className="hidden sm:block" />
                     {/* Desktop nav links */}
-                    <div className="hidden items-center gap-6 text-xs font-medium uppercase tracking-[0.2em] text-black/60 sm:flex">
+                    <div className="hidden items-center gap-6 text-xs font-medium uppercase tracking-[0.2em] text-black/60 dark:text-white/60 sm:flex">
                         <a href="#about" className="transition-colors hover:text-accent">
                             About
                         </a>
@@ -51,15 +59,23 @@ export default function Navbar() {
                     </motion.span>
                 </div>
 
-                {/* Right Area — mobile logo toggle */}
-                <div className="flex w-1/3 justify-end pointer-events-auto">
+                {/* Right Area — theme toggle & mobile logo toggle */}
+                <div className="flex w-1/3 justify-end items-center gap-4 pointer-events-auto">
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            className="rounded-full p-2 text-black/60 hover:bg-black/5 dark:text-white/60 dark:hover:bg-white/10 transition-colors"
+                        >
+                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
+                    )}
                     <motion.div
                         animate={{ rotate: isMobileOpen ? 90 : 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="cursor-pointer sm:hidden"
                         onClick={() => setIsMobileOpen(!isMobileOpen)}
                     >
-                        <Image src="/images/logo.png" alt="Hyphen Logo" width={30} height={30} />
+                        <Image src="/images/logo.png" alt="Hyphen Logo" width={30} height={30} className="dark:invert" />
                     </motion.div>
                 </div>
             </nav>
@@ -90,21 +106,21 @@ export default function Navbar() {
                                 <a
                                     href="#about"
                                     onClick={() => setIsMobileOpen(false)}
-                                    className="text-sm font-medium uppercase tracking-[0.2em] text-black/70 transition-colors hover:text-accent"
+                                    className="text-sm font-medium uppercase tracking-[0.2em] text-black/70 dark:text-white/70 transition-colors hover:text-accent"
                                 >
                                     About
                                 </a>
                                 <a
                                     href="#events"
                                     onClick={() => setIsMobileOpen(false)}
-                                    className="text-sm font-medium uppercase tracking-[0.2em] text-black/70 transition-colors hover:text-accent"
+                                    className="text-sm font-medium uppercase tracking-[0.2em] text-black/70 dark:text-white/70 transition-colors hover:text-accent"
                                 >
                                     Events
                                 </a>
                             </div>
 
                             <div className="mt-auto pb-10">
-                                <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-black/40">
+                                <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
                                     A Private Club &middot; England
                                 </div>
                             </div>
