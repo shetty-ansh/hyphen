@@ -8,20 +8,20 @@ export default function About() {
         >
             <div className="mx-auto max-w-6xl">
                 {/* Section label */}
-                <h2 className="mb-16 text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
+                <h2 className="mb-16 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                     About
                 </h2>
 
                 <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-24">
                     {/* Text column */}
                     <div className="lg:w-3/5">
-                        <p className="text-2xl font-light leading-relaxed tracking-tight text-black/80 sm:text-3xl">
+                        <p className="text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl">
                             hyphen is a private members&rsquo; club in London,
                             England &mdash; a room held open for dinners, sets,
                             openings, and the people worth knowing.
                         </p>
                         <div className="mt-10 h-px w-16 bg-accent" />
-                        <p className="mt-10 max-w-lg text-sm leading-relaxed text-black/50">
+                        <p className="mt-10 max-w-lg text-sm leading-relaxed text-foreground">
                             We believe the best conversations happen in the right
                             room with the right people. hyphen exists to make that
                             room permanent.

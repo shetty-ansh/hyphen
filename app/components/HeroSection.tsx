@@ -56,12 +56,7 @@ export default function Hero() {
     // Bulletproof fix to prevent it from ever coming back
     const fadedTextDisplay = useTransform(scrollYProgress, (v) => v >= 0.25 ? "none" : "flex");
 
-    // Wordmark color: black -> accent gold very late in scroll
-    const wordmarkColor = useTransform(
-        scrollYProgress,
-        [0.6, 0.85],
-        ["rgba(0,0,0,1)", "rgba(237,192,1,1)"]
-    );
+
 
     return (
         <section ref={containerRef} className="relative h-[200vh] w-full bg-background">
@@ -74,14 +69,14 @@ export default function Hero() {
                     style={{ opacity: fadedTextOpacity, display: fadedTextDisplay }}
                     className="pointer-events-none absolute inset-0 items-end justify-center pb-24 sm:!hidden"
                 >
-                    <span className="text-[18vw] font-bold uppercase tracking-[0.15em] text-black leading-none select-none">
+                    <span className="text-[18vw] font-bold uppercase tracking-[0.15em] text-foreground leading-none select-none">
                         england
                     </span>
                 </motion.div>
 
                 <motion.div
-                    style={{ scale: wordmarkScale, y: wordmarkY, color: wordmarkColor }}
-                    className={`${inter.variable} relative inline-block font-sans leading-none antialiased`}
+                    style={{ scale: wordmarkScale, y: wordmarkY }}
+                    className={`${inter.variable} relative inline-block font-sans leading-none antialiased text-foreground`}
                 >
                     <h1
                         aria-label="hyphen"
