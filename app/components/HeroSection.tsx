@@ -47,23 +47,41 @@ export default function Hero() {
     // time the sticky section releases into About
     const wordmarkScale = useTransform(scrollYProgress, [0.1, 0.7], [1, 0.22]);
     const wordmarkY = useTransform(scrollYProgress, [0.1, 0.7], ["0vh", "34vh"]);
+    // Faded mobile text: starts fading slightly earlier and takes a bit longer to smooth out the drop
+    const fadedTextOpacity = useTransform(
+        scrollYProgress,
+        [0, 0.05, 0.25, 1],
+        [0.04, 0.04, 0, 0]
+    );
+    // Bulletproof fix to prevent it from ever coming back
+    const fadedTextDisplay = useTransform(scrollYProgress, (v) => v >= 0.25 ? "none" : "flex");
+
+    // Wordmark color: black -> accent gold very late in scroll
+    const wordmarkColor = useTransform(
+        scrollYProgress,
+        [0.6, 0.85],
+        ["rgba(0,0,0,1)", "rgba(237,192,1,1)"]
+    );
 
     return (
-        <section ref={containerRef} className="relative h-[200vh] w-full bg-black">
-            <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden bg-black">
+        <section ref={containerRef} className="relative h-[200vh] w-full bg-background">
+            <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden bg-background">
                 {/* Subtle center glow */}
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_85%)] mix-blend-screen" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,169,59,0.18)_0%,transparent_45%)] mix-blend-multiply" />
 
-                {/* <a
-                    href="#request"
-                    className="absolute right-6 top-6 z-20 text-xs font-semibold uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white sm:right-10 sm:top-8"
+                {/* Faded background text — mobile only */}
+                <motion.div
+                    style={{ opacity: fadedTextOpacity, display: fadedTextDisplay }}
+                    className="pointer-events-none absolute inset-0 items-end justify-center pb-24 sm:hidden"
                 >
-                    Request Invite
-                </a> */}
+                    <span className="text-[18vw] font-bold uppercase tracking-[0.15em] text-black leading-none select-none">
+                        england
+                    </span>
+                </motion.div>
 
                 <motion.div
-                    style={{ scale: wordmarkScale, y: wordmarkY }}
-                    className={`${inter.variable} relative inline-block font-sans leading-none text-white antialiased`}
+                    style={{ scale: wordmarkScale, y: wordmarkY, color: wordmarkColor }}
+                    className={`${inter.variable} relative inline-block font-sans leading-none antialiased`}
                 >
                     <h1
                         aria-label="hyphen"
@@ -78,7 +96,7 @@ export default function Hero() {
                         <motion.div
                             style={{ x: crossbarX, opacity: crossbarOpacity }}
                             aria-hidden
-                            className="h-full w-full overflow-hidden border-y-[3px] border-black bg-black"
+                            className="h-full w-full overflow-hidden border-y-[3px] border-background bg-background"
                         >
                             <div className="marquee flex h-full w-max items-center">
                                 {[...FRAMES, ...FRAMES].map((src, i) => (
