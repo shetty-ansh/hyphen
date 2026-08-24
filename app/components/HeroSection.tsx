@@ -72,7 +72,7 @@ export default function Hero() {
                 {/* Faded background text — mobile only */}
                 <motion.div
                     style={{ opacity: fadedTextOpacity, display: fadedTextDisplay }}
-                    className="pointer-events-none absolute inset-0 items-end justify-center pb-24 sm:hidden"
+                    className="pointer-events-none absolute inset-0 items-end justify-center pb-24 sm:!hidden"
                 >
                     <span className="text-[18vw] font-bold uppercase tracking-[0.15em] text-black leading-none select-none">
                         england
