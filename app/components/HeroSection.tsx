@@ -19,14 +19,11 @@ const inter = Inter({
  *   images: { remotePatterns: [{ hostname: "picsum.photos" }] }
  */
 const FRAMES = [
-    "https://picsum.photos/seed/hyphen-01/320/240",
-    "https://picsum.photos/seed/hyphen-02/320/240",
-    "https://picsum.photos/seed/hyphen-03/320/240",
-    "https://picsum.photos/seed/hyphen-04/320/240",
-    "https://picsum.photos/seed/hyphen-05/320/240",
-    "https://picsum.photos/seed/hyphen-06/320/240",
-    "https://picsum.photos/seed/hyphen-07/320/240",
-    "https://picsum.photos/seed/hyphen-08/320/240",
+    "/images/image-1.png",
+    "/images/image-2.png",
+    "/images/image-5.png",
+    "/images/image-6.png",
+    "/images/image-7.png",
 ];
 
 export default function Hero() {
@@ -70,7 +67,7 @@ export default function Hero() {
                     className="pointer-events-none absolute inset-0 items-end justify-center pb-24 sm:!hidden"
                 >
                     <span className="text-[18vw] font-bold uppercase tracking-[0.15em] text-foreground leading-none select-none">
-                        england
+                        LONDON
                     </span>
                 </motion.div>
 
