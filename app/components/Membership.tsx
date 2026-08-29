@@ -1,4 +1,5 @@
 import { HelpCircle, MessageSquare, Ticket } from "lucide-react";
+import Image from "next/image";
 
 const sessions = [
     {
@@ -6,12 +7,14 @@ const sessions = [
         time: "5PM – 12AM",
         title: "Late Wednesdays",
         desc: "Open 5pm to midnight. Our signature creative late shift. The antidote to working alone at home at night.",
+        image: "/images/image-6.png",
     },
     {
         day: "FRI",
         time: "ALL DAY",
         title: "Friday Coworking",
         desc: "Full-day coworking access. Ends with our “Shipped” ritual where members share one win for the week.",
+        image: "/images/image-7.png",
     },
 ];
 
@@ -61,23 +64,33 @@ export default function Membership() {
                     {sessions.map((s) => (
                         <div
                             key={s.day}
-                            className="group p-10 sm:p-12 border-r border-b border-black/10 dark:border-white/10 bg-white dark:bg-transparent hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-md transition-all duration-300"
+                            className="group flex flex-col border-r border-b border-black/10 dark:border-white/10 bg-white dark:bg-transparent hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 overflow-hidden"
                         >
-                            <div className="flex items-baseline justify-between mb-8">
-                                <span className="text-6xl sm:text-7xl font-light tracking-tight text-foreground">
-                                    {s.day}
-                                </span>
-                                <span className="text-xs font-medium tracking-widest text-foreground/50">
-                                    {s.time}
-                                </span>
+                            <div className="relative h-64 sm:h-72 w-full overflow-hidden border-b border-black/10 dark:border-white/10">
+                                <Image 
+                                    src={s.image} 
+                                    alt={s.title} 
+                                    fill 
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0" 
+                                />
                             </div>
-                            <span className="block h-[3px] w-10 bg-foreground group-hover:w-16 transition-all duration-500 mb-8" />
-                            <h3 className="text-xl font-medium tracking-tight text-foreground mb-3">
-                                {s.title}
-                            </h3>
-                            <p className="text-sm leading-relaxed text-foreground/65 max-w-md">
-                                {s.desc}
-                            </p>
+                            <div className="p-10 sm:p-12 flex-1 flex flex-col">
+                                <div className="flex items-baseline justify-between mb-8">
+                                    <span className="text-6xl sm:text-7xl font-light tracking-tight text-foreground">
+                                        {s.day}
+                                    </span>
+                                    <span className="text-xs font-medium tracking-widest text-foreground/50">
+                                        {s.time}
+                                    </span>
+                                </div>
+                                <span className="block h-[3px] w-10 bg-foreground group-hover:w-16 transition-all duration-500 mb-8" />
+                                <h3 className="text-xl font-medium tracking-tight text-foreground mb-3">
+                                    {s.title}
+                                </h3>
+                                <p className="text-sm leading-relaxed text-foreground/65 max-w-md">
+                                    {s.desc}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -7,7 +7,7 @@ export default function About() {
             className="w-full bg-background px-6 py-24 sm:px-10 sm:py-32 lg:px-16"
         >
             <div className="mx-auto max-w-6xl flex flex-col gap-32">
-                
+
                 {/* WHO THE COMMUNITY IS */}
                 <div>
                     <h2 className="mb-12 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
@@ -26,9 +26,9 @@ export default function About() {
                             {[
                                 ...Array(4).fill([
                                     "/images/image-3.jpg",
-                                    "/images/image-0.jpg",
+                                    "/images/image-0.JPG",
                                     "/images/image-4.jpg",
-                                    "/images/image-2.png",
+                                    "/images/image-2.JPG",
                                     "/images/image-5.png"
                                 ]).flat()
                             ].map((src, i) => (
