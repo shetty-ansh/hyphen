@@ -160,7 +160,7 @@ export default function Hero() {
 
     const wordmarkScale = useTransform(scrollYProgress, [0.1, 0.7], [1, 0.22]);
     const wordmarkY = useTransform(scrollYProgress, [0.1, 0.7], ["0vh", "34vh"]);
-    
+
     const fadedTextOpacity = useTransform(
         scrollYProgress,
         [0, 0.05, 0.25, 1],
@@ -171,15 +171,15 @@ export default function Hero() {
     return (
         <section ref={containerRef} className="relative h-[200vh] w-full bg-background">
             <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden bg-background">
-                
+
                 {/* 1. Base Layer: Full-screen Fixed Video */}
                 <div className="absolute inset-0 z-0">
-                    <video 
+                    <video
                         src="/images/video-2.mp4"
-                        autoPlay 
-                        loop 
-                        muted 
-                        playsInline 
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="h-full w-full object-cover"
                     />
                 </div>
@@ -189,7 +189,7 @@ export default function Hero() {
 
                 {/* 2. Cutout Layer: Pure White (Light Mode) / Pure Black (Dark Mode) */}
                 <div className="absolute inset-0 z-10 flex items-center justify-center bg-white dark:bg-black mix-blend-screen dark:mix-blend-multiply pointer-events-none">
-                    
+
                     {/* Faded background text — mobile only */}
                     <motion.div
                         style={{ opacity: fadedTextOpacity, display: fadedTextDisplay }}
@@ -214,7 +214,7 @@ export default function Hero() {
                         </h1>
 
                         {/* Animated slash hole - Higher z-index to visually sit on top of the text */}
-                        <div className="absolute left-[-6%] right-[-6%] top-[60%] h-[10%] -translate-y-1/2 overflow-hidden z-10">
+                        <div className="absolute left-[-6%] right-[-6%] top-[60%] h-[18%] -translate-y-1/2 overflow-hidden z-10">
                             <motion.div
                                 style={{ x: crossbarX, opacity: crossbarOpacity }}
                                 aria-hidden
