@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Events from "./components/Events";
 import Membership from "./components/Membership";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Membership />
       <Events />
+      <FAQ />
       <Footer />
       <FloatingCTA />
     </div>
