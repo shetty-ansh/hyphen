@@ -12,7 +12,7 @@ export default function Events() {
     }, []);
 
     const currentTheme = mounted ? (theme === "system" ? resolvedTheme : theme) : "light";
-    const iframeSrc = `https://luma.com/embed/calendar/cal-Ruxml0OG5UDwMNk/events?lt=${currentTheme === "dark" ? "dark" : "light"}`;
+    const iframeSrc = `https://luma.com/embed/calendar/cal-MyV8SGS5L4CmXU4/events?lt=${currentTheme === "dark" ? "dark" : "light"}`;
 
     return (
         <section
@@ -22,7 +22,7 @@ export default function Events() {
             <div className="mx-auto max-w-6xl">
                 {/* Section label */}
                 <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
-                    Programming
+                    Be a part of hyphen.lnd
                 </h2>
 
                 <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -33,15 +33,17 @@ export default function Events() {
                 </div>
 
                 {/* Luma Calendar Embed */}
-                {/* To find your Calendar ID: Go to your Luma Calendar -> Share -> Embed on Website -> Copy the URL in the src attribute */}
-                <div className="relative w-full overflow-hidden rounded-xl border border-black/8 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] p-1 sm:p-3">
+                <div className="relative w-full overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 p-2 sm:p-4 shadow-2xl backdrop-blur-md transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]">
                     <iframe
                         src={iframeSrc}
                         width="100%"
                         height="600"
                         frameBorder="0"
-                        style={{ borderRadius: "8px" }}
-                        allowFullScreen={false}
+                        style={{
+                            border: "1px solid #bfcbda88",
+                            borderRadius: "12px"
+                        }}
+                        allowFullScreen={true}
                         aria-hidden="false"
                         tabIndex={0}
                         className="bg-transparent"
