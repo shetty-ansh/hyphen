@@ -5,6 +5,10 @@
   --foreground: #000000;
 }
 
+html {
+  font-size: 112.5%; /* 18px base font size to slightly enlarge all text globally */
+}
+
 .dark {
   --background: #000000;
   --foreground: #ffffff;

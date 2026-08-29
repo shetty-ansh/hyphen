@@ -64,14 +64,14 @@ export default function Navbar() {
 
                 {/* Right Area — theme toggle & mobile logo toggle */}
                 <div className="flex w-1/3 justify-end items-center gap-4 pointer-events-auto">
-                    {mounted && (
+                    {/* mounted && (
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             className="rounded-full p-2 text-foreground hover:bg-foreground/10 transition-colors"
                         >
                             {currentTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
                         </button>
-                    )}
+                    ) */}
                     <motion.div
                         animate={{ rotate: isMobileOpen ? 90 : 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Events from "./components/Events";
 import Membership from "./components/Membership";
 import Footer from "./components/Footer";
+import FloatingCTA from "./components/FloatingCTA";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Membership />
       <Events />
       <Footer />
+      <FloatingCTA />
     </div>
   );
 }
