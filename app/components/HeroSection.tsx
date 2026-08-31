@@ -175,6 +175,12 @@ export default function Hero() {
                 {/* 1. Base Layer: Full-screen Fixed Video */}
                 <div className="absolute inset-0 z-0">
                     <video
+                        ref={(el) => {
+                            if (el) {
+                                el.defaultMuted = true;
+                                el.muted = true;
+                            }
+                        }}
                         src="/images/video-2.mp4"
                         autoPlay
                         loop
