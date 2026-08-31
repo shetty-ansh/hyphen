@@ -1,44 +1,55 @@
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
+import Parser from "rss-parser";
 
-const POSTS = [
-    {
-        id: 1,
-        title: "The Art of Curated Experiences",
-        excerpt: "Exploring the meticulous design behind hyphen's bespoke events and why human connection remains our greatest luxury.",
-        date: "October 12, 2026",
-        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 2,
-        title: "Defining Modern Elegance",
-        excerpt: "A conversation with our lead architect on blending heritage brutalism with soft, contemporary minimalism.",
-        date: "September 28, 2026",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 3,
-        title: "Culinary Alchemy: The New Menu",
-        excerpt: "Our executive chef walks us through the seasonal ingredients and bold flavor profiles shaping this winter's dining experience.",
-        date: "September 15, 2026",
-        image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 4,
-        title: "The Sound of Hyphen",
-        excerpt: "Curating the perfect auditory backdrop. How our resident DJs craft atmospheres that evolve from morning focus to midnight energy.",
-        date: "August 30, 2026",
-        image: "https://images.unsplash.com/photo-1516280440502-a2a46b85d3df?q=80&w=800&auto=format&fit=crop",
+export const revalidate = 3600;
+
+type Props = {
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }> | { [key: string]: string | string[] | undefined };
+};
+
+export default async function BlogPage(props: Props) {
+    const searchParams = await props.searchParams;
+    const pageParam = searchParams?.page;
+    const page = typeof pageParam === 'string' ? parseInt(pageParam, 10) : 1;
+    const POSTS_PER_PAGE = 4;
+
+    const parser = new Parser();
+    let posts: any[] = [];
+    let totalPages = 1;
+
+    try {
+        const feed = await parser.parseURL("https://lenny.substack.com/feed");
+        totalPages = Math.ceil(feed.items.length / POSTS_PER_PAGE);
+        const startIndex = (page - 1) * POSTS_PER_PAGE;
+        const endIndex = startIndex + POSTS_PER_PAGE;
+        
+        posts = feed.items.slice(startIndex, endIndex).map((item, index) => {
+            const imgMatch = item.content?.match(/<img[^>]+src="([^">]+)"/);
+            const image = imgMatch
+                ? imgMatch[1]
+                : "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop";
+
+            return {
+                id: index,
+                title: item.title || "Untitled",
+                excerpt: item.contentSnippet ? item.contentSnippet.slice(0, 150) + "..." : "Read more...",
+                date: item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : "",
+                image: image,
+                link: item.link || "#"
+            };
+        });
+    } catch (e) {
+        console.error("Failed to fetch RSS", e);
     }
-];
 
-export default function BlogPage() {
     return (
         <div className="flex flex-col min-h-screen bg-background font-sans">
             <Navbar />
-            
+
             <main className="flex-1 pt-32 pb-24 px-6 sm:px-12">
                 <div className="mx-auto max-w-7xl">
                     <header className="mb-20">
@@ -51,35 +62,72 @@ export default function BlogPage() {
                     </header>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
-                        {POSTS.map((post) => (
-                            <article key={post.id} className="group cursor-pointer flex flex-col">
-                                <div className="relative aspect-[4/3] w-full overflow-hidden bg-foreground/5 mb-6">
-                                    <Image
-                                        src={post.image}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                </div>
-                                <div className="flex flex-col flex-1">
-                                    <div className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50 mb-3">
-                                        {post.date}
+                        {posts.map((post) => (
+                            <Link href={post.link} key={post.id} target="_blank" rel="noopener noreferrer">
+                                <article className="group cursor-pointer flex flex-col h-full">
+                                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-foreground/5 mb-6">
+                                        <Image
+                                            src={post.image}
+                                            alt={post.title}
+                                            fill
+                                            unoptimized={true}
+                                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                        />
                                     </div>
-                                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4 group-hover:text-foreground/80 transition-colors">
-                                        {post.title}
-                                    </h2>
-                                    <p className="text-lg text-foreground/70 leading-relaxed mb-6">
-                                        {post.excerpt}
-                                    </p>
-                                    <div className="mt-auto pt-4 border-t border-foreground/10 flex items-center justify-between text-sm font-bold uppercase tracking-[0.2em]">
-                                        <span>Read More</span>
-                                        <span className="transform transition-transform group-hover:translate-x-2">→</span>
+                                    <div className="flex flex-col flex-1">
+                                        <div className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50 mb-3">
+                                            {post.date}
+                                        </div>
+                                        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4 group-hover:text-foreground/80 transition-colors">
+                                            {post.title.split(' ').map((word: string, i: number, arr: string[]) => {
+                                                const isEmoji = /\p{Extended_Pictographic}/u.test(word);
+                                                return (
+                                                    <span key={i}>
+                                                        <span className={isEmoji ? "" : "line-through decoration-2 decoration-foreground/50"}>{word}</span>
+                                                        {i !== arr.length - 1 && ' '}
+                                                    </span>
+                                                );
+                                            })}
+                                        </h2>
+                                        <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                                            {post.excerpt}
+                                        </p>
+                                        <div className="mt-auto pt-4 border-t border-foreground/10 flex items-center justify-between text-sm font-bold uppercase tracking-[0.2em]">
+                                            <span>Read More</span>
+                                            <span className="transform transition-transform group-hover:translate-x-2">→</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </article>
+                                </article>
+                            </Link>
                         ))}
+                        {posts.length === 0 && (
+                            <div className="col-span-1 md:col-span-2 py-20 text-center text-foreground/50">
+                                No posts found. Please try again later.
+                            </div>
+                        )}
                     </div>
+
+                    {/* Pagination */}
+                    {totalPages > 1 && (
+                        <div className="mt-20 flex items-center justify-between border-t border-foreground/10 pt-8">
+                            {page > 1 ? (
+                                <Link href={`/blog?page=${page - 1}`} className="text-sm font-bold uppercase tracking-[0.2em] hover:text-foreground/70 transition-colors">
+                                    ← Previous
+                                </Link>
+                            ) : <div />}
+                            
+                            <div className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
+                                Page {page} of {totalPages}
+                            </div>
+                            
+                            {page < totalPages ? (
+                                <Link href={`/blog?page=${page + 1}`} className="text-sm font-bold uppercase tracking-[0.2em] hover:text-foreground/70 transition-colors">
+                                    Next →
+                                </Link>
+                            ) : <div />}
+                        </div>
+                    )}
                 </div>
             </main>
 
