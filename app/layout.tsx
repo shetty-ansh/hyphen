@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'hyphen',
     description: "London's exclusive events community and private club.",
+  },
+  icons: {
+    icon: '/favicon.ico?v=2',
   }
 };
 

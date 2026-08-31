@@ -62,7 +62,7 @@ export default async function BlogPage(props: Props) {
                     </header>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16">
-                        {posts.map((post) => (
+                        {posts.map((post, index) => (
                             <Link href={post.link} key={post.id} target="_blank" rel="noopener noreferrer">
                                 <article className="group cursor-pointer flex flex-col h-full">
                                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-foreground/5 mb-6">
@@ -70,6 +70,7 @@ export default async function BlogPage(props: Props) {
                                             src={post.image}
                                             alt={post.title}
                                             fill
+                                            priority={index < 2}
                                             unoptimized={true}
                                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                                             sizes="(max-width: 768px) 100vw, 50vw"
