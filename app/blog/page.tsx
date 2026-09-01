@@ -17,21 +17,43 @@ export default async function BlogPage(props: Props) {
     const page = typeof pageParam === 'string' ? parseInt(pageParam, 10) : 1;
     const POSTS_PER_PAGE = 4;
 
-    const parser = new Parser();
+    const parser = new Parser({
+        customFields: {
+            item: [
+                ['content:encoded', 'contentEncoded'],
+                ['media:content', 'mediaContent'],
+                ['media:thumbnail', 'mediaThumbnail'],
+            ],
+        },
+    });
     let posts: any[] = [];
     let totalPages = 1;
 
     try {
-        const feed = await parser.parseURL("https://lenny.substack.com/feed");
+        let feed;
+        try {
+            feed = await parser.parseURL("https://csnetwork.substack.com/feed");
+        } catch {
+            feed = await parser.parseURL("https://substack.com/feed/@csnetwork");
+        }
         totalPages = Math.ceil(feed.items.length / POSTS_PER_PAGE);
         const startIndex = (page - 1) * POSTS_PER_PAGE;
         const endIndex = startIndex + POSTS_PER_PAGE;
-        
+
         posts = feed.items.slice(startIndex, endIndex).map((item, index) => {
-            const imgMatch = item.content?.match(/<img[^>]+src="([^">]+)"/);
-            const image = imgMatch
-                ? imgMatch[1]
-                : "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop";
+            // Extract Substack image from enclosure, media content, or HTML <img> tags
+            let image = "";
+            if (item.enclosure?.url) {
+                image = item.enclosure.url;
+            } else if (item.mediaContent?.$?.url) {
+                image = item.mediaContent.$.url;
+            } else if (item.mediaThumbnail?.$?.url) {
+                image = item.mediaThumbnail.$.url;
+            } else {
+                const rawHtml = item.contentEncoded || item.content || item["content:encoded"] || "";
+                const imgMatch = rawHtml.match(/<img[^>]+src=["']([^"']+)["']/i);
+                image = imgMatch ? imgMatch[1] : "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop";
+            }
 
             return {
                 id: index,
@@ -57,7 +79,7 @@ export default async function BlogPage(props: Props) {
                             The Journal
                         </h1>
                         <p className="text-xl sm:text-2xl text-foreground/70 max-w-2xl leading-relaxed">
-                            Thoughts, conversations, and updates from inside hyphen.
+                            Thoughts, conversations, and updates from inside <a className="font-medium line-through decoration-2 decoration-foreground/50 hover:text-foreground transition-colors">hyphen</a>.
                         </p>
                     </header>
 
@@ -117,11 +139,11 @@ export default async function BlogPage(props: Props) {
                                     ← Previous
                                 </Link>
                             ) : <div />}
-                            
+
                             <div className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                                 Page {page} of {totalPages}
                             </div>
-                            
+
                             {page < totalPages ? (
                                 <Link href={`/blog?page=${page + 1}`} className="text-sm font-bold uppercase tracking-[0.2em] hover:text-foreground/70 transition-colors">
                                     Next →

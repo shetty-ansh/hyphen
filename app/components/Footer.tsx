@@ -11,7 +11,7 @@ export default function Footer() {
                         hyphen
                     </div>
                     <div className="text-xs font-medium uppercase tracking-[0.2em] text-foreground">
-                        A Private Club &middot; England
+                        A Private Club &middot; London
                     </div>
                 </div>
 
