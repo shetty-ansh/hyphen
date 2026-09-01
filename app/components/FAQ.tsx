@@ -75,8 +75,15 @@ const FAQ_DATA: FAQItem[] = [
   {
     question: "How do I join?",
     answer: (
-      <p className="italic text-foreground/60">
-        [Add sign-up link once payments are live.]
+      <p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfsKXRcDdDobfxjmQEQQUaNDGMuihTUVcQ9_XQ0wFCtPED7lA/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium underline underline-offset-4 hover:text-foreground transition-colors"
+        >
+          Apply via our application form &rarr;
+        </a>
       </p>
     ),
   },
