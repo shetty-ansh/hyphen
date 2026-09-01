@@ -125,6 +125,13 @@ export default function Navbar() {
                                 >
                                     The Space
                                 </Link>
+                                <Link
+                                    href="/faq"
+                                    onClick={() => setIsMobileOpen(false)}
+                                    className="text-sm font-medium uppercase tracking-[0.2em] text-foreground transition-colors hover:text-foreground"
+                                >
+                                    FAQ
+                                </Link>
                             </div>
 
                             <div className="mt-auto pb-10">

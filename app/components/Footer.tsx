@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
     return (
         <footer className="w-full bg-background px-6 py-20 text-foreground sm:px-10 lg:px-16">
@@ -27,14 +29,15 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Terms */}
+                    {/* Terms & Info */}
                     <div className="flex flex-col gap-4">
                         <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground">
-                            Terms
+                            Info
                         </div>
                         <div className="flex flex-col gap-2 text-xs font-semibold tracking-wide">
+                            <Link href="/faq" className="transition-colors hover:text-foreground">FAQ</Link>
                             <a href="#" className="transition-colors hover:text-foreground">Privacy policy</a>
-                            <a href="#" className="transition-colors hover:text-foreground">Terms of Service</a>
+                            <Link href="/terms" className="transition-colors hover:text-foreground">Terms and Conditions</Link>
                         </div>
                     </div>
                 </div>
