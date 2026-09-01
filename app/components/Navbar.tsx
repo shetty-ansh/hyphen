@@ -134,8 +134,12 @@ export default function Navbar() {
                                 </Link>
                             </div>
 
-                            <div className="mt-auto pb-10">
-                                <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground">
+                            <div className="mt-auto pb-10 flex flex-col gap-3">
+                                <div className="flex gap-4 text-xs font-semibold uppercase tracking-wider text-foreground/70">
+                                    <a href="https://www.instagram.com/hyphen.ldn/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
+                                    <a href="https://substack.com/@csnetwork" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Substack</a>
+                                </div>
+                                <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/60">
                                     A Private Club &middot; England
                                 </div>
                             </div>

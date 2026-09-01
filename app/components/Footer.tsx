@@ -23,9 +23,9 @@ export default function Footer() {
                             Contact
                         </div>
                         <div className="flex flex-col gap-2 text-xs font-semibold tracking-wide">
-                            <a href="mailto:Club@verci.com" className="transition-colors hover:text-foreground">Club@verci.com</a>
-                            <a href="#" className="transition-colors hover:text-foreground">Instagram</a>
-                            <a href="#" className="transition-colors hover:text-foreground">Twitter</a>
+                            <a href="mailto:hello@tcsnetwork.co.uk" className="transition-colors hover:text-foreground">Email</a>
+                            <a href="https://www.instagram.com/hyphen.ldn/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Instagram</a>
+                            <a href="https://substack.com/@csnetwork" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Substack</a>
                         </div>
                     </div>
 
