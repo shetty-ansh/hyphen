@@ -26,7 +26,7 @@ export default function About() {
                             {[
                                 ...Array(4).fill([
                                     "/images/image-3.jpg",
-                                    "/images/image-0.JPG",
+                                    "/images/image-0.jpg",
                                     "/images/image-14.png",
                                     "/images/image-12.png",
                                     "/images/image-5.png"

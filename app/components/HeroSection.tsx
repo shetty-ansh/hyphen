@@ -136,7 +136,7 @@
 
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Inter } from "next/font/google";
 
@@ -148,6 +148,13 @@ const inter = Inter({
 
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const video = containerRef.current?.querySelector("video");
+        if (video) {
+            video.playbackRate = 0.5;
+        }
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -173,23 +180,22 @@ export default function Hero() {
             <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden bg-background">
 
                 {/* 1. Base Layer: Full-screen Fixed Video */}
-                <div className="absolute inset-0 z-0">
-                    <video
-                        ref={(el) => {
-                            if (el) {
-                                el.defaultMuted = true;
-                                el.muted = true;
-                                el.playbackRate = 0.5;
-                            }
-                        }}
-                        src="/images/video-2.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="h-full w-full object-cover"
-                    />
-                </div>
+                <div 
+                    ref={containerRef}
+                    className="absolute inset-0 z-0"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        <video
+                            src="/images/video-2.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            class="h-full w-full object-cover"
+                        ></video>
+                        `
+                    }}
+                />
 
                 {/* Subtle center glow - behind the mask layer */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,169,59,0.3)_0%,transparent_45%)] mix-blend-multiply z-0 pointer-events-none" />

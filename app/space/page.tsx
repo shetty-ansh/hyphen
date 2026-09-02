@@ -4,12 +4,12 @@ import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
 
 const GALLERY_IMAGES = [
-    { id: 2, url: "/images/image-2.JPG", alt: "hyphen 2", className: "col-span-2 row-span-1" }, // Landscape (Real)
-    { id: 0, url: "/images/image-0.JPG", alt: "hyphen 0", className: "col-span-1 row-span-2" }, // Portrait (Real)
+    { id: 2, url: "/images/image-2.jpg", alt: "hyphen 2", className: "col-span-2 row-span-1" }, // Landscape (Real)
+    { id: 0, url: "/images/image-0.jpg", alt: "hyphen 0", className: "col-span-1 row-span-2" }, // Portrait (Real)
     { id: 5, url: "/images/image-5.png", alt: "hyphen 5", className: "col-span-1 row-span-1" }, // Square (Real)
     { id: 8, url: "/images/image-8.jpg", alt: "hyphen 8", className: "col-span-2 row-span-1" }, // Landscape (Real)
     { id: 11, url: "/images/image-11.png", alt: "hyphen 11", className: "col-span-1 row-span-1" }, // Square (AI)
-    { id: 9, url: "/images/image-9.JPG", alt: "hyphen 9", className: "col-span-2 row-span-1" }, // Landscape (Real)
+    { id: 9, url: "/images/image-9.jpg", alt: "hyphen 9", className: "col-span-2 row-span-1" }, // Landscape (Real)
     { id: 3, url: "/images/image-3.jpg", alt: "hyphen 3", className: "col-span-1 row-span-2" }, // Portrait (AI)
     { id: 12, url: "/images/image-12.png", alt: "hyphen 12", className: "col-span-1 row-span-2" }, // Portrait (AI)
     { id: 1, url: "/images/image-1.png", alt: "hyphen 1", className: "col-span-2 row-span-1" }, // Landscape (AI)
