@@ -61,16 +61,14 @@ export default function Navbar() {
                     </motion.span>
                 </div>
 
-                {/* Right Area — theme toggle & mobile logo toggle */}
-                <div className="flex w-1/3 justify-end items-center gap-4 pointer-events-auto">
-                    (
-                    <button
-                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="rounded-full p-2 text-foreground hover:bg-foreground/10 transition-colors"
+                {/* Right Area — Menu toggle */}
+                <div className="flex w-1/3 justify-end items-center pointer-events-auto">
+                    <button 
+                        onClick={() => setIsMobileOpen(!isMobileOpen)}
+                        className="text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:opacity-50 transition-opacity"
                     >
-                        {currentTheme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                        {isMobileOpen ? "Close" : "Menu"}
                     </button>
-                    )
                 </div>
             </nav>
 
@@ -118,6 +116,7 @@ export default function Navbar() {
                                 >
                                     The Journal
                                 </Link>
+
                                 <Link
                                     href="/space"
                                     onClick={() => setIsMobileOpen(false)}

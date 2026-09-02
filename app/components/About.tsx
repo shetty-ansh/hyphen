@@ -27,13 +27,13 @@ export default function About() {
                                 ...Array(4).fill([
                                     "/images/image-3.jpg",
                                     "/images/image-0.JPG",
-                                    "/images/image-4.jpg",
-                                    "/images/image-2.JPG",
+                                    "/images/image-14.png",
+                                    "/images/image-12.png",
                                     "/images/image-5.png"
                                 ]).flat()
                             ].map((src, i) => (
                                 <div key={i} className={`snap-center shrink-0 w-[70%] sm:w-[45%] relative aspect-[3/4] overflow-hidden rounded-xl ${i % 2 === 0 ? "translate-y-6" : "-translate-y-6"}`}>
-                                    <Image src={src} alt="Community member" fill className="object-cover grayscale-0 sm:grayscale sm:hover:grayscale-0 transition duration-700" sizes="(max-width: 1024px) 70vw, 30vw" />
+                                    <Image src={src} alt="Community member" fill className="object-cover transition duration-700" sizes="(max-width: 1024px) 70vw, 30vw" />
                                 </div>
                             ))}
                         </div>
@@ -47,7 +47,7 @@ export default function About() {
                     </h2>
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
                         <div className="lg:col-span-6 relative aspect-square w-full overflow-hidden rounded-xl">
-                            <Image src="/images/image-4.jpg" alt="The space" fill className="object-cover grayscale-0 sm:grayscale sm:hover:grayscale-0 transition duration-700" sizes="(max-width: 1024px) 100vw, 50vw" />
+                            <Image src="/images/image-4.jpg" alt="The space" fill className="object-cover transition duration-700" sizes="(max-width: 1024px) 100vw, 50vw" />
                         </div>
                         <div className="lg:col-span-6 flex flex-col gap-8">
                             <p className="text-2xl font-light leading-relaxed tracking-tight text-foreground sm:text-3xl">

@@ -7,14 +7,14 @@ const sessions = [
         time: "5PM – 12AM",
         title: "Late Wednesdays",
         desc: "Open 5pm to midnight. Our signature creative late shift. The antidote to working alone at home at night.",
-        image: "/images/image-6.png",
+        image: "/images/image-5.png",
     },
     {
         day: "FRI",
         time: "ALL DAY",
         title: "Friday Coworking",
         desc: "Full-day coworking access. Ends with our “Shipped” ritual where members share one win for the week.",
-        image: "/images/image-7.png",
+        image: "/images/image-9.jpg",
     },
 ];
 
@@ -67,11 +67,11 @@ export default function Membership() {
                             className="group flex flex-col border-r border-b border-black/10 dark:border-white/10 bg-white dark:bg-transparent hover:-translate-y-0.5 hover:shadow-xl transition-all duration-500 overflow-hidden"
                         >
                             <div className="relative h-64 sm:h-72 w-full overflow-hidden border-b border-black/10 dark:border-white/10">
-                                <Image 
-                                    src={s.image} 
-                                    alt={s.title} 
-                                    fill 
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0" 
+                                <Image
+                                    src={s.image}
+                                    alt={s.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                             </div>
                             <div className="p-10 sm:p-12 flex-1 flex flex-col">

@@ -179,6 +179,7 @@ export default function Hero() {
                             if (el) {
                                 el.defaultMuted = true;
                                 el.muted = true;
+                                el.playbackRate = 0.5;
                             }
                         }}
                         src="/images/video-2.mp4"
