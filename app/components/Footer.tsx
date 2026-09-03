@@ -36,7 +36,7 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col gap-2 text-xs font-semibold tracking-wide">
                             <Link href="/faq" className="transition-colors hover:text-foreground">FAQ</Link>
-                            <a href="#" className="transition-colors hover:text-foreground">Privacy policy</a>
+                            <Link href="/privacy" className="transition-colors hover:text-foreground">Privacy Policy</Link>
                             <Link href="/terms" className="transition-colors hover:text-foreground">Terms and Conditions</Link>
                         </div>
                     </div>

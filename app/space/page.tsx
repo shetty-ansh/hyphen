@@ -10,7 +10,7 @@ const GALLERY_IMAGES = [
     { id: 8, url: "/images/image-8.jpg", alt: "hyphen 8", className: "col-span-2 row-span-1" }, // Landscape (Real)
     { id: 11, url: "/images/image-11.png", alt: "hyphen 11", className: "col-span-1 row-span-1" }, // Square (AI)
     { id: 9, url: "/images/image-9.JPG", alt: "hyphen 9", className: "col-span-2 row-span-1" }, // Landscape (Real)
-    { id: 3, url: "/images/image-3.JPG", alt: "hyphen 3", className: "col-span-1 row-span-2" }, // Portrait (AI)
+    { id: 3, url: "/images/image-3.jpg", alt: "hyphen 3", className: "col-span-1 row-span-2" }, // Portrait (AI)
     { id: 12, url: "/images/image-12.png", alt: "hyphen 12", className: "col-span-1 row-span-2" }, // Portrait (AI)
     { id: 1, url: "/images/image-1.png", alt: "hyphen 1", className: "col-span-2 row-span-1" }, // Landscape (AI)
     { id: 4, url: "/images/image-4.jpg", alt: "hyphen 4", className: "col-span-2 row-span-1" }, // Landscape (AI)
