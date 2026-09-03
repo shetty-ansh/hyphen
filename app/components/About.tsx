@@ -25,7 +25,7 @@ export default function About() {
                         <div className="lg:col-span-7 flex overflow-x-auto gap-4 snap-x snap-mandatory py-12 order-1 lg:order-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                             {[
                                 ...Array(4).fill([
-                                    "/images/image-3.jpg",
+                                    "/images/image-3.JPG",
                                     "/images/image-0.jpg",
                                     "/images/image-14.png",
                                     "/images/image-12.png",

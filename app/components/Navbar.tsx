@@ -95,6 +95,13 @@ export default function Navbar() {
                             className="fixed left-0 top-0 z-50 flex h-full w-64 flex-col bg-background px-8 pt-24 shadow-2xl"
                         >
                             <div className="flex flex-col gap-8">
+                                <Link
+                                    href="/"
+                                    onClick={() => setIsMobileOpen(false)}
+                                    className="text-sm line-through font-bold tracking-[0.3em] text-foreground transition-colors hover:text-foreground"
+                                >
+                                    home
+                                </Link>
                                 <a
                                     href="/#about"
                                     onClick={() => setIsMobileOpen(false)}
