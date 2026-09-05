@@ -168,12 +168,7 @@ export default function Hero() {
     const wordmarkScale = useTransform(scrollYProgress, [0.1, 0.7], [1, 0.22]);
     const wordmarkY = useTransform(scrollYProgress, [0.1, 0.7], ["0vh", "34vh"]);
 
-    const fadedTextOpacity = useTransform(
-        scrollYProgress,
-        [0, 0.05, 0.25, 1],
-        [0.04, 0.04, 0, 0]
-    );
-    const fadedTextDisplay = useTransform(scrollYProgress, (v) => v >= 0.25 ? "none" : "flex");
+
 
     return (
         <section ref={containerRef} className="relative h-[200vh] w-full bg-background">
@@ -203,15 +198,6 @@ export default function Hero() {
                 {/* 2. Cutout Layer: Pure White (Light Mode) / Pure Black (Dark Mode) */}
                 <div className="absolute inset-0 z-10 flex items-center justify-center bg-white dark:bg-black mix-blend-screen dark:mix-blend-multiply pointer-events-none">
 
-                    {/* Faded background text — mobile only */}
-                    <motion.div
-                        style={{ opacity: fadedTextOpacity, display: fadedTextDisplay }}
-                        className="absolute inset-0 flex items-end justify-center pb-24 sm:!hidden"
-                    >
-                        <span className="text-[18vw] font-bold uppercase tracking-[0.15em] text-black dark:text-white leading-none select-none">
-                            LONDON
-                        </span>
-                    </motion.div>
 
                     <motion.div
                         style={{ scale: wordmarkScale, y: wordmarkY }}

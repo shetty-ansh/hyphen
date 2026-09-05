@@ -11,7 +11,7 @@ export default function Footer() {
                         hyphen
                     </div>
                     <div className="text-xs font-medium uppercase tracking-[0.2em] text-foreground">
-                        Private members club for multi-hyphenate creatives &middot; London
+                        A Private Club &middot; London
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col gap-2 text-xs font-semibold tracking-wide">
                             <a href="mailto:hello@tcsnetwork.co.uk" className="transition-colors hover:text-foreground">Email</a>
-                            <a href="https://www.instagram.com/hyphen.tcsnetwork.co.uk/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Instagram</a>
+                            <a href="https://www.instagram.com/hyphen.ldn/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Instagram</a>
                             <a href="https://substack.com/@csnetwork" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">Substack</a>
                         </div>
                     </div>
