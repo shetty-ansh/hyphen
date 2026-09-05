@@ -155,7 +155,7 @@ export default function Navbar() {
                                     <a href="https://substack.com/@csnetwork" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Substack</a>
                                 </div>
                                 <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/60">
-                                    A Private Club &middot; England
+                                    Private Members Club &middot; London
                                 </div>
                             </div>
                         </motion.div>
