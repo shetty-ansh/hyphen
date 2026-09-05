@@ -61,8 +61,17 @@ export default function Navbar() {
                     </motion.span>
                 </div>
 
-                {/* Right Area — Menu toggle */}
-                <div className="flex w-1/3 justify-end items-center pointer-events-auto">
+                {/* Right Area — Theme & Menu toggle */}
+                <div className="flex w-1/3 justify-end items-center gap-6 pointer-events-auto">
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
+                            className="text-foreground hover:opacity-50 transition-opacity"
+                            aria-label="Toggle theme"
+                        >
+                            {currentTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                        </button>
+                    )}
                     <button
                         onClick={() => setIsMobileOpen(!isMobileOpen)}
                         className="text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:opacity-50 transition-opacity"
