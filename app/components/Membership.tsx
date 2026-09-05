@@ -14,7 +14,7 @@ const sessions = [
         time: "ALL DAY",
         title: "Friday Coworking",
         desc: "Full-day coworking access. Ends with our “Shipped” ritual where members share one win for the week.",
-        image: "/images/image-9.JPG",
+        image: "/images/image-9.png",
     },
 ];
 
