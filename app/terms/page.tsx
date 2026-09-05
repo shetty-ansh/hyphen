@@ -5,8 +5,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | hyphen.ldn",
-  description: "Terms and conditions governing membership of hyphen.ldn private members' community.",
+  title: "Terms and Conditions | hyphen.tcsnetwork.co.uk",
+  description: "Terms and conditions governing membership of hyphen.tcsnetwork.co.uk private members' community.",
 };
 
 const SECTIONS = [
@@ -14,7 +14,7 @@ const SECTIONS = [
     id: "1",
     title: "1. Membership",
     items: [
-      "1.1 hyphen.ldn is a private members' community. Membership is personal to you and cannot be transferred, shared, or resold.",
+      "1.1 hyphen.tcsnetwork.co.uk is a private members' community. Membership is personal to you and cannot be transferred, shared, or resold.",
       "1.2 We offer three tiers: Social, Full, and Founding, as described on our website and in our FAQ. Prices and inclusions may change for future members, but any change to your own tier's price will be communicated to you in advance.",
       "1.3 We reserve the right to decline or revoke membership at our discretion, including where a member's conduct is inconsistent with the spirit of the community.",
     ],
@@ -59,7 +59,7 @@ const SECTIONS = [
     id: "6",
     title: "6. Code of conduct",
     items: [
-      "6.1 hyphen.ldn is built on trust and belonging. Members are expected to treat other members, guests and staff with respect.",
+      "6.1 hyphen.tcsnetwork.co.uk is built on trust and belonging. Members are expected to treat other members, guests and staff with respect.",
       "6.2 We do not tolerate harassment, discrimination, or any behaviour that undermines the safety or comfort of others in the space.",
       "6.3 Breach of this code may result in suspension or termination of membership, without refund.",
     ],
@@ -99,13 +99,13 @@ export default function TermsPage() {
         <div className="mx-auto max-w-4xl">
           <header className="mb-16 border-b border-foreground/10 pb-12">
             <div className="text-xs font-bold uppercase tracking-[0.3em] text-foreground/60 mb-4">
-              hyphen.ldn
+              hyphen.tcsnetwork.co.uk
             </div>
             <h1 className="text-4xl sm:text-6xl font-bold uppercase leading-none tracking-tight mb-6">
               Terms & Conditions
             </h1>
             <p className="text-lg sm:text-xl text-foreground/70 leading-relaxed max-w-2xl">
-              These terms govern membership of hyphen.ldn. By signing up, you agree to them.
+              These terms govern membership of hyphen.tcsnetwork.co.uk. By signing up, you agree to them.
             </p>
           </header>
 

@@ -63,7 +63,7 @@ export default function Navbar() {
 
                 {/* Right Area — Menu toggle */}
                 <div className="flex w-1/3 justify-end items-center pointer-events-auto">
-                    <button 
+                    <button
                         onClick={() => setIsMobileOpen(!isMobileOpen)}
                         className="text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:opacity-50 transition-opacity"
                     >
@@ -142,11 +142,11 @@ export default function Navbar() {
 
                             <div className="mt-auto pb-10 flex flex-col gap-3">
                                 <div className="flex gap-4 text-xs font-semibold uppercase tracking-wider text-foreground/70">
-                                    <a href="https://www.instagram.com/hyphen.ldn/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
+                                    <a href="https://www.instagram.com/hyphen.tcsnetwork.co.uk/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
                                     <a href="https://substack.com/@csnetwork" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Substack</a>
                                 </div>
                                 <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/60">
-                                    A Private Club &middot; England
+                                    Private members club for multi-hyphenate creatives &middot; England
                                 </div>
                             </div>
                         </motion.div>

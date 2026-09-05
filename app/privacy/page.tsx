@@ -4,9 +4,9 @@ import FloatingCTA from "../components/FloatingCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Privacy & Data Protection Policy | hyphen.ldn",
+    title: "Privacy & Data Protection Policy | hyphen.tcsnetwork.co.uk",
     description:
-        "Privacy and data protection policy for hyphen.ldn private members' community.",
+        "Privacy and data protection policy for hyphen.tcsnetwork.co.uk private members' community.",
 };
 
 const SECTIONS = [
@@ -35,7 +35,7 @@ const SECTIONS = [
         ],
         extra: [
             "[INSERT LEGAL ENTITY OPERATING HYPHEN]",
-            "Trading as hyphen.ldn / Hyphen",
+            "Trading as hyphen.tcsnetwork.co.uk / Hyphen",
             "[INSERT REGISTERED OR BUSINESS ADDRESS]",
             "United Kingdom",
             "",
@@ -947,7 +947,7 @@ export default function PrivacyPage() {
                 <div className="mx-auto max-w-4xl">
                     <header className="mb-16 border-b border-foreground/10 pb-12">
                         <div className="text-xs font-bold uppercase tracking-[0.3em] text-foreground/60 mb-4">
-                            hyphen.ldn
+                            hyphen.tcsnetwork.co.uk
                         </div>
                         <h1 className="text-4xl sm:text-6xl font-bold uppercase leading-none tracking-tight mb-6">
                             Privacy &amp; Data Protection
@@ -976,7 +976,7 @@ export default function PrivacyPage() {
                                     how Hyphen uses personal information should be sent to:
                                 </p>
                                 <div className="text-foreground/60 italic space-y-1">
-                                    <p>Hyphen / hyphen.ldn</p>
+                                    <p>Hyphen / hyphen.tcsnetwork.co.uk</p>
                                     <p>[INSERT LEGAL ENTITY NAME]</p>
                                     <p>[INSERT REGISTERED OR BUSINESS ADDRESS]</p>
                                     <p>London, United Kingdom</p>

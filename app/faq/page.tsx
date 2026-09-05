@@ -5,8 +5,8 @@ import FloatingCTA from "../components/FloatingCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQ | hyphen.ldn",
-  description: "Frequently asked questions about hyphen.ldn membership, tiers, space access, and community.",
+  title: "FAQ | hyphen.tcsnetwork.co.uk",
+  description: "Frequently asked questions about hyphen.tcsnetwork.co.uk membership, tiers, space access, and community.",
 };
 
 export default function FAQPage() {

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://hyphen.ldn/sitemap.xml',
+    sitemap: 'https://hyphen.tcsnetwork.co.uk/sitemap.xml',
   };
 }

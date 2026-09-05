@@ -15,7 +15,7 @@ if (typeof window === "undefined") {
       if (!fs.existsSync(destPublic)) fs.copyFileSync(src, destPublic);
       if (!fs.existsSync(destApp)) fs.copyFileSync(src, destApp);
     }
-  } catch {}
+  } catch { }
 }
 
 const geistSans = Geist({
@@ -29,13 +29,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "hyphen | London's Exclusive Events Community",
-  description: "hyphen - An exclusive events community and private club based in London. Meticulous design, bespoke events, and modern elegance.",
-  metadataBase: new URL('https://hyphen.ldn'),
+  title: "hyphen | Private members club for multi-hyphenate creatives",
+  description: "hyphen - A private members club for multi-hyphenate creatives.",
+  metadataBase: new URL('https://hyphen.tcsnetwork.co.uk'),
   openGraph: {
     title: "hyphen",
-    description: "An exclusive events community and private club based in London.",
-    url: 'https://hyphen.ldn',
+    description: "A private members club for multi-hyphenate creatives.",
+    url: 'https://hyphen.tcsnetwork.co.uk',
     siteName: 'hyphen',
     locale: 'en_GB',
     type: 'website',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'hyphen',
-    description: "London's exclusive events community and private club.",
+    description: "Private members club for multi-hyphenate creatives.",
   },
   icons: {
     icon: [
